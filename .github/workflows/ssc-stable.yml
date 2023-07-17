@@ -18,7 +18,7 @@ on:
       - 'ssc-*'
 
 env:
-  DOCKER_IMAGE_NAME: ghcr.io/axoflow/axosyslog-splunk-connector
+  DOCKER_IMAGE_NAME: ghcr.io/alltilla/axosyslog-splunk-connector
   PLATFORMS: linux/amd64
   SC4S_REPO: ${{ inputs.repo || 'splunk/splunk-connect-for-syslog' }}
   SYSLOG_NG_IMG_VERSION: ${{ inputs.syslog-ng-image-version || 'latest' }}
@@ -44,7 +44,7 @@ jobs:
             core.setOutput('ref', tag);
 
   publish-image:
-    if: github.repository_owner == 'axoflow'
+    if: github.repository_owner == 'alltilla'
     needs: version
     runs-on: ubuntu-latest
     steps:
