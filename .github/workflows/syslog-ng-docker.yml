@@ -15,7 +15,7 @@ on:
 
 env:
   DOCKER_IMAGE_NAME: ghcr.io/alltilla/axosyslog
-  PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7
+  PLATFORMS: linux/amd64
 
 jobs:
   docker:
