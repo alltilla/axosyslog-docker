@@ -24,6 +24,11 @@ RUN apk add -U --upgrade --no-cache \
       socat \
       tzdata \
       wget \
+      gdb \
+      valgrind \
+      strace \
+      perf \
+      vim \
     && curl -fsSL https://goss.rocks/install | GOSS_VER=v0.3.21 sh \
     && groupadd --gid 1024 syslog \
     && useradd -M -g 1024 -u 1024 syslog \
