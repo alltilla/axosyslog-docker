@@ -11,7 +11,7 @@ pkgdesc="Next generation logging daemon"
 url="https://www.syslog-ng.com/products/open-source-log-management/"
 arch="all"
 license="GPL-2.0-or-later"
-options="!check" # unit tests require https://github.com/Snaipe/Criterion with deps
+options="!check !strip" # unit tests require https://github.com/Snaipe/Criterion with deps
 makedepends="
 	bison
 	bpftool

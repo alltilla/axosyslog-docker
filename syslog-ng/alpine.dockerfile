@@ -46,6 +46,8 @@ COPY --from=apkbuilder /home/builder/packages/ /
 COPY --from=apkbuilder /home/builder/.abuild/*.pub /etc/apk/keys/
 
 RUN apk add --repository /axoflow -U --upgrade --no-cache \
+    gdb \
+    valgrind \
     jemalloc \
     libdbi-drivers \
     syslog-ng \
@@ -79,4 +81,4 @@ EXPOSE 6514/tcp
 
 HEALTHCHECK --interval=2m --timeout=5s --start-period=30s CMD /usr/sbin/syslog-ng-ctl healthcheck --timeout 5
 ENV LD_PRELOAD /usr/lib/libjemalloc.so.2
-ENTRYPOINT ["/usr/sbin/syslog-ng", "-F"]
+ENTRYPOINT ["valgrind", "--leak-check=full", "--trace-children=yes", "/usr/sbin/syslog-ng", "-F"]
