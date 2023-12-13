@@ -91,7 +91,6 @@ jobs:
 
 
   publish-image:
-    if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/syslog-ng-docker.yml
     needs: [tarball, build-and-test]
     with:
