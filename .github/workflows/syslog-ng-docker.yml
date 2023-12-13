@@ -17,14 +17,14 @@ on:
         type: string
 
 env:
-  DOCKER_IMAGE_NAME: ghcr.io/axoflow/axosyslog
+  DOCKER_IMAGE_NAME: ghcr.io/alltilla/axosyslog
   PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7
   DEBUG_PLATFORM: linux/amd64
 
 jobs:
   docker:
     name: syslog-ng Docker
-    if: github.repository_owner == 'axoflow'
+    if: github.repository_owner == 'alltilla'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
