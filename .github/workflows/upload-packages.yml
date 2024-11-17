@@ -43,7 +43,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: github.repository_owner == 'axoflow'
+    # if: github.repository_owner == 'axoflow'
 
     strategy:
       matrix:
@@ -66,6 +66,6 @@ jobs:
           find * -type f -exec \
             aws s3api put-object \
               --endpoint-url https://${{ secrets.r2-account-id }}.r2.cloudflarestorage.com \
-              --bucket axoflow-packages-build \
+              --bucket axosyslog-incoming \
               --key ${{ inputs.pkg-type }}/${{ github.run_id }}/${{ matrix.distro.type }}/{} \
               --body {} \;
